@@ -7,8 +7,8 @@ import { Searchbar } from 'components/Searchbar/Searchbar';
 import { Loader } from 'components/Loader/Loader';
 import { ImageGallery } from 'components/ImageGallery/ImageGallery';
 import Notiflix from 'notiflix';
-import { Modal } from 'components/Modal/Modal';
 import { LoadMoreBtn } from 'components/Button/Button';
+import { Modal } from 'components/Modal/Modal';
 
 export function App() {
   const [query, setQuery] = useState('');
@@ -17,10 +17,6 @@ export function App() {
   const [total, setTotal] = useState(0);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [modal, setModal] = useState({
-    isOpen: false,
-    data: null,
-  });
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
@@ -69,18 +65,10 @@ export function App() {
   };
 
   const onOpenModal = modalData => {
-    setModal({
-      isOpen: true,
-      data: modalData,
-    });
     setSelectedImage(modalData);
   };
 
   const onCloseModal = () => {
-    setModal({
-      isOpen: false,
-      data: null,
-    });
     setSelectedImage(null);
   };
 
