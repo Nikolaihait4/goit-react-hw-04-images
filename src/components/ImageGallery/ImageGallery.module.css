@@ -1,0 +1,31 @@
+.imgGallerySec {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.imgGalleryKomponent {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* Расстояние между элементами */
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px; /* Максимальная ширина контейнера */
+}
+
+.imgGalleryKomponent li {
+  width: calc(
+    25% - 16px
+  ); /* 25% ширины родительского контейнера с учетом расстояния между элементами */
+  margin-bottom: 16px; /* Расстояние между строками */
+  display: flex;
+  justify-content: center;
+}
+
+.imgGalleryKomponent img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover; /* Растягиваем изображение, чтобы оно полностью покрывало контейнер */
+}

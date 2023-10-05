@@ -1,0 +1,29 @@
+/* Button.module.css */
+
+.loadmoreBtn {
+  margin: 0 auto;
+  background-color: #007bff;
+  border: none;
+  color: #ffffff;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.loadmoreBtn:hover,
+.button:focus {
+  background-color: #0056b3;
+  outline: none;
+}
+
+.loadmoreBtn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Устанавливаем указатель курсора в виде руки при наведении */
+.loadmoreBtn:hover,
+.loadmoreBtn:focus,
+.loadmoreBtn:disabled {
+  cursor: pointer;
+}

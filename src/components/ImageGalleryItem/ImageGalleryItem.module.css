@@ -1,0 +1,13 @@
+.imgGItemlist {
+  cursor: pointer; /* Добавьте курсор указывающий на возможность клика */
+  transition: transform 0.3s ease-in-out; /* Плавная анимация */
+}
+
+.imgGItemlist:hover {
+  transform: scale(1.05); /* Увеличение элемента при наведении */
+}
+
+.imgPixabay {
+  max-width: 100%;
+  height: auto;
+}
