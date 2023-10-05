@@ -7,9 +7,9 @@ export const ImageGallery = ({ items, onOpenModal }) => {
   return (
     <div className={css.imgGallerySec}>
       <ul className={css.imgGalleryKomponent}>
-        {items.map(item => (
+        {items.map((item, index) => (
           <ImageGalleryItem
-            key={item.id}
+            key={item.id || index} // Используем индекс, если id не уникален
             item={item}
             onOpenModal={onOpenModal}
           />

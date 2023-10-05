@@ -1,48 +1,44 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import css from './Modal.module.css';
 
-export default class Modal extends Component {
-  componentDidMount() {
-    window.addEventListener('keydown', this.handleKeyDown);
-  }
+export function Modal({ selectedImage, onCloseModal }) {
+  useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.code === 'Escape') {
+        onCloseModal();
+      }
+    };
 
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleKeyDown);
-  }
+    window.addEventListener('keydown', handleKeyDown);
 
-  handleKeyDown = e => {
-    if (e.code === 'Escape') {
-      this.props.onCloseModal();
-    }
-  };
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onCloseModal]);
 
-  handleOverlayClick = e => {
+  const handleOverlayClick = e => {
     if (e.target === e.currentTarget) {
-      this.props.onCloseModal();
+      onCloseModal();
     }
   };
 
-  render() {
-    const { selectedImage } = this.props;
+  if (!selectedImage) return null;
 
-    if (!selectedImage) return null;
+  const { tags, largeImageURL } = selectedImage;
 
-    const { tags, largeImageURL } = selectedImage;
-
-    return (
-      <div className={css.overlay} onClick={this.handleOverlayClick}>
-        <div className={css.modal}>
-          <button className={css.closeBtn} onClick={this.props.onCloseModal}>
-            &times;
-          </button>
-          <img
-            src={largeImageURL}
-            alt={tags}
-            loading="lazy"
-            className={css.largeImg}
-          />
-        </div>
+  return (
+    <div className={css.overlay} onClick={handleOverlayClick}>
+      <div className={css.modal}>
+        <button className={css.closeBtn} onClick={onCloseModal}>
+          &times;
+        </button>
+        <img
+          src={largeImageURL}
+          alt={tags}
+          loading="lazy"
+          className={css.largeImg}
+        />
       </div>
-    );
-  }
+    </div>
+  );
 }

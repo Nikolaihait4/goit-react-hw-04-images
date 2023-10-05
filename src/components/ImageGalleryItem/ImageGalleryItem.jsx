@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import css from './ImageGalleryItem.module.css';
 
-export class ImageGalleryItem extends Component {
-  handleImageClick = () => {
-    const { item, onOpenModal } = this.props;
-    onOpenModal(item); // Вызовите метод для открытия модального окна с выбранным изображением
+export function ImageGalleryItem({ item, onOpenModal }) {
+  const handleImageClick = () => {
+    onOpenModal(item);
   };
 
-  render() {
-    const { tags, webformatURL } = this.props.item;
-    return (
-      <li onClick={this.handleImageClick} className={css.imgGItemlist}>
-        <img src={webformatURL} alt={tags} className={css.imgPixabay} />
-      </li>
-    );
-  }
+  const { tags, webformatURL } = item;
+  return (
+    <li onClick={handleImageClick} className={css.imgGItemlist}>
+      <img src={webformatURL} alt={tags} className={css.imgPixabay} />
+    </li>
+  );
 }

@@ -1,4 +1,7 @@
 /* Button.module.css */
+.loadmoreBtnWrapper {
+  margin: 0 auto;
+}
 
 .loadmoreBtn {
   margin: 0 auto;
